@@ -1,0 +1,31 @@
+{% extends 'resumeapp/base.html' %} 
+{% block style %} 
+.container { 
+  width: 50vw;
+} 
+
+{% endblock style %} 
+
+{% block body %}
+
+<div class="container shadow-lg">
+  <div class="row">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-header">Hotel ID : {{hotel.id}}</h5>
+        <h5 class="card-header">Hotel Name : {{hotel.hotel_name}}</h5>
+        <h5 class="card-header">Total Rooms : {{hotel.total_rooms}}</h5>
+        <h5 class="card-header">Rooms Available :{{hotel.rooms_available}}</h5>
+        <h5 class="card-header">State : {{hotel.available_states}}</h5>
+        <h5 class="card-header">Rating : {{hotel.hotel_rating}} stars</h5>
+        <h5 class="card-header">Starting Price : &#8377;{{hotel.starting_price}}</h5>
+
+        <a href=" {% url 'hotels' %} " class="btn btn-outline-info mt-2"
+          >Go back to hotels</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

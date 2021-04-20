@@ -1,0 +1,15 @@
+{% extends 'resumeapp/base.html' %}
+
+{% block style %}
+{% endblock style %}
+
+{% block body %}
+
+
+  {% for hotel in hotels %}
+    {{hotel.id}}
+    {{hotel.user}}
+    {{hotel.hotel_names}}
+  {% endfor %}
+
+{% endblock body %}

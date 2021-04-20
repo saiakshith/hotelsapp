@@ -1,0 +1,56 @@
+
+* {
+  box-sizing: border-box;
+  font-size: 22px;
+  font-family: Helvetica, Arial, sans-serif;
+
+}
+
+@media screen and (max-width: 640px) {
+  .link, .fas {
+    font-size: 16px;
+  }
+}
+
+sup {
+  color: red;
+}
+
+.errors {
+  color: red;
+}
+.custom-navbar {
+margin-bottom: .5rem;
+padding: .5rem 0; 
+background-color: #915D43;
+height: 3.5rem;
+display: flex;
+align-items: center;
+}
+
+.explore {
+margin-left: auto;
+}
+
+.login, .logout, .signup {
+  margin-right: .5rem;
+  border-top: 2px solid;
+  border-right: 2px solid;
+}
+
+.link{
+display: inline-block;
+text-decoration: none;
+color: white;
+padding: 0 .5rem;
+}
+
+.link:hover, .fas:hover {
+  color: #B2A595;
+}
+
+.fas {
+color: white;
+margin: 0 1rem;
+font-size: 1.5em;
+}

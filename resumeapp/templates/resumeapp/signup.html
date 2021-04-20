@@ -1,0 +1,55 @@
+{% extends 'resumeapp/base.html' %}
+
+{% block style %}
+
+.container { 
+  width: 50vw;
+}
+
+
+{% endblock style%}
+
+{% block body  %}
+{{request.user}}
+{% if messages %}
+{% for message in messages %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong> {{message}} </strong> Now you can log in.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+
+{% endfor %}
+{% endif %}
+
+<div class="container shadow-lg">
+<div class="row">
+<div class="alert alert-secondary text-center mt-2" role="alert">
+  Signup Form
+</div>
+
+<form action="" method="post" novalidate>
+{% csrf_token %}
+
+{% if signupform.non_field_errors %}
+{% for error in signupform.non_field_errors %}
+<span class="errors"> {{errors}} </span>
+{% endfor %}
+{% endif %}
+
+{% for field in signupform %}
+{{field.label_tag}} <sup>*</sup>
+{{field}}
+<span class="errors">{{field.errors | striptags }}</span> <br><br>
+{% endfor %}
+
+<input type="submit" value="Sign Up" class="btn btn-outline-primary">
+<p class="d-inline-block ml-auto">Already have an account ?<a href=" {% url 'login' %} " class="alert alert-link">Log In</a></p>
+</form>
+
+</div>
+</div>
+
+
+{% endblock body  %}

@@ -1,0 +1,43 @@
+{% extends 'resumeapp/base.html' %}
+
+{% block style %}
+.container {
+  width: 50vw;
+}
+
+{% endblock style %}
+
+{% block body %}
+{{request.user}}
+
+
+<div class="container shadow-lg">
+
+<div class="alert alert-secondary text-center mt-2" role="alert">
+  Login Form
+</div>
+
+<form action="" method="post" novalidate>
+{% csrf_token %}
+{% if loginform.non_field_errors %}
+{% for error in loginform.non_field_errors %}
+<div class="errors"> {{error}} </div>
+{% endfor %}
+{% endif %}
+
+{% for field in loginform %}
+{{field.label_tag}} <sup>*</sup>
+{{field}}
+<span class="errors"> {{ field.errors | striptags }}  </span> <br><br>
+{% endfor %}
+
+<input type="submit" value="Log In" class="btn btn-outline-success">
+
+<p class="d-inline-block ml-auto">Don't have an account ?<a href=" {% url 'signup' %} " class="alert alert-link">Sign Up</a></p>
+</form>
+
+{% comment %} <a href=" {%  url 'logout' %} " class="btn btn-outline-danger mt-2">Log Out</a> {% endcomment %}
+
+</div>
+
+{% endblock body %}

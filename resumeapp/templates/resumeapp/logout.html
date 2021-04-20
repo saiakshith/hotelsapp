@@ -1,0 +1,11 @@
+{% extends 'resumeapp/base.html' %}
+
+{% block body %}
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success"> {{message}} </div>
+{% endfor %}
+{% endif %}
+
+{% endblock body %}
